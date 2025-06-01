@@ -2,20 +2,21 @@ using ScryfallAPI;
 using Microsoft.EntityFrameworkCore;
 using ScryfallAPI.Utilities;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using ScryfallAPI.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Authorization;
+using ScryfallData.Model;
 using System.Security.Claims;
+using ScryfallData;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<ScryfallContext>(opt =>
     opt.UseSqlServer(connectionString: builder
-                                        .Configuration
-                                        .GetConnectionString("ScryFallConnection")
+                                       .Configuration
+                                       .GetConnectionString("ScryFallConnection")
 	));
+
 builder.Services.AddHttpClient<APIRetriever>();
+builder.Services.AddTransient<APIRetriever>();
 builder.Services.AddRazorPages();
 builder.WebHost.UseStaticWebAssets();
 

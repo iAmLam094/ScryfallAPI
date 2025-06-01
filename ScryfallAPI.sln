@@ -5,6 +5,10 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScryfallAPI", "ScryfallAPI\ScryfallAPI.csproj", "{7076B11E-B190-40DF-9052-2A5012A175B2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScryfallTests", "ScryfallTests\ScryfallTests.csproj", "{09049CEA-7EE1-4775-9C18-2ABE55474E6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScryfallData", "ScryfallData\ScryfallData.csproj", "{94D0D956-627F-47F8-9083-A607D87258B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7076B11E-B190-40DF-9052-2A5012A175B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7076B11E-B190-40DF-9052-2A5012A175B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7076B11E-B190-40DF-9052-2A5012A175B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09049CEA-7EE1-4775-9C18-2ABE55474E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09049CEA-7EE1-4775-9C18-2ABE55474E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09049CEA-7EE1-4775-9C18-2ABE55474E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09049CEA-7EE1-4775-9C18-2ABE55474E6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94D0D956-627F-47F8-9083-A607D87258B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94D0D956-627F-47F8-9083-A607D87258B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94D0D956-627F-47F8-9083-A607D87258B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94D0D956-627F-47F8-9083-A607D87258B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,26 +4,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ScryfallAPI.Utilities;
 using System.Security.Claims;
-using static System.Net.WebRequestMethods;
+using ScryfallData;
 
 namespace ScryfallAPI.Pages
 {
     public class LoginModel : PageModel
     {
-		public ScryfallContext _context {  get; set; }
-
-		public LoginModel(ScryfallContext context)
+		private ScryfallContext _context;
+		private ILogger<LoginModel> _logger;
+		public LoginModel(ScryfallContext context, ILogger<LoginModel> logger)
 		{
 			_context = context;
+			_logger = logger;
 		}
         public void OnGet()
         {
 
         }
 
-        public async Task<IActionResult> OnPostAsync()
+		public async Task<IActionResult> OnPostAsync()
         {
-            if (ModelState.IsValid)
+				
+			if (ModelState.IsValid)
             {
                 string? emailFromInput = Request.Form["emailaddress"];
                 AuthenticateUser authenticateUser = new(_context);

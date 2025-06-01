@@ -4,84 +4,76 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ScryfallAPI;
+using ScryfallData;
 
 #nullable disable
 
-namespace ScryfallAPI.Migrations
+namespace ScryfallData.Migrations
 {
     [DbContext(typeof(ScryfallContext))]
-    [Migration("20240303222049_AddedUserTable")]
-    partial class AddedUserTable
+    [Migration("20250601161048_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.2")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ScryfallAPI.Models.FavoriteCards", b =>
+            modelBuilder.Entity("ScryfallData.Model.FavoriteCards", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsFavorite")
-                        .HasColumnType("bit")
-                        .HasColumnName("IsFavorite");
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Name");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PennyRank")
-                        .HasColumnType("int")
-                        .HasColumnName("PennyRank");
+                        .HasColumnType("int");
 
                     b.Property<string>("ReleasedAt")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("ReleaseDate");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int")
-                        .HasColumnName("UserId");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Favorites", (string)null);
+                    b.ToTable("Favorites");
                 });
 
-            modelBuilder.Entity("ScryfallAPI.Models.User", b =>
+            modelBuilder.Entity("ScryfallData.Model.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Email");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ScryfallAPI.Models.FavoriteCards", b =>
+            modelBuilder.Entity("ScryfallData.Model.FavoriteCards", b =>
                 {
-                    b.HasOne("ScryfallAPI.Models.User", "User")
+                    b.HasOne("ScryfallData.Model.User", "User")
                         .WithMany("Favorites")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -90,7 +82,7 @@ namespace ScryfallAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ScryfallAPI.Models.User", b =>
+            modelBuilder.Entity("ScryfallData.Model.User", b =>
                 {
                     b.Navigation("Favorites");
                 });

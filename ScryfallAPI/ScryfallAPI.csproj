@@ -29,4 +29,8 @@
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ScryfallData\ScryfallData.csproj" />
+  </ItemGroup>
+
 </Project>
